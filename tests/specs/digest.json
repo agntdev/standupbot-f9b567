@@ -1,0 +1,19 @@
+[
+  {
+    "name": "today's digest renders for a team",
+    "steps": [
+      {
+        "send": { "callback": "team:create" },
+        "expect": [{ "method": "editMessageText" }]
+      },
+      {
+        "send": { "text": "Rockets" },
+        "expect": [{ "method": "sendMessage" }]
+      },
+      {
+        "send": { "callback": "digest:today" },
+        "expect": [{ "method": "editMessageText" }]
+      }
+    ]
+  }
+]

@@ -8,7 +8,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "ℹ️ Tap /start to open the menu, then pick what you want from the buttons.\n\nEverything in this bot is reachable by tapping — you don't need to remember any commands."
+              "text": "🗒️ StandupBot runs your team's async daily standups.\n\nTap /start to open the menu, then:\n• 👥 Team — create a team or join one with a code\n• ✍️ My Update — post today's standup (yesterday / today / blockers)\n• 📊 Today's Digest — see everyone's update in one place\n• 🔔 Nudge — remind teammates who haven't posted yet\n• 🗂 History — browse and search past standups\n\nEverything is reachable by tapping — you don't need to remember any commands."
             }
           }
         ]
