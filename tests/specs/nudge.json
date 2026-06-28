@@ -1,0 +1,25 @@
+[
+  {
+    "name": "nudge reminds the pending owner",
+    "steps": [
+      {
+        "send": { "callback": "team:create" },
+        "expect": [{ "method": "editMessageText" }]
+      },
+      {
+        "send": { "text": "Rockets" },
+        "expect": [{ "method": "sendMessage" }]
+      },
+      {
+        "send": { "callback": "nudge:send" },
+        "expect": [
+          { "method": "sendMessage" },
+          {
+            "method": "editMessageText",
+            "payload": { "text": "🔔 Nudged 1 member(s): Test." }
+          }
+        ]
+      }
+    ]
+  }
+]

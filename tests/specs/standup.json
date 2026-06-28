@@ -1,0 +1,40 @@
+[
+  {
+    "name": "the standup flow saves an update with the team's questions",
+    "steps": [
+      {
+        "send": { "callback": "team:create" },
+        "expect": [{ "method": "editMessageText" }]
+      },
+      {
+        "send": { "text": "Rockets" },
+        "expect": [{ "method": "sendMessage" }]
+      },
+      {
+        "send": { "callback": "standup:start" },
+        "expect": [{ "method": "editMessageText" }]
+      },
+      {
+        "send": { "text": "shipped the login page" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "📝 What will you work on today?" } }
+        ]
+      },
+      {
+        "send": { "text": "build the digest view" },
+        "expect": [{ "method": "sendMessage", "payload": { "text": "📝 Any blockers?" } }]
+      },
+      {
+        "send": { "text": "none" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "✅ Standup saved! Here's what you posted:\n\n• What did you do yesterday? shipped the login page\n• What will you work on today? build the digest view\n• Any blockers? none\n\nTap 📊 Today's Digest to see the whole team."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

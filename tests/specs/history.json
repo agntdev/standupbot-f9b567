@@ -1,0 +1,52 @@
+[
+  {
+    "name": "history lists the archive and search handles a miss",
+    "steps": [
+      {
+        "send": { "callback": "team:create" },
+        "expect": [{ "method": "editMessageText" }]
+      },
+      {
+        "send": { "text": "Rockets" },
+        "expect": [{ "method": "sendMessage" }]
+      },
+      {
+        "send": { "callback": "standup:start" },
+        "expect": [{ "method": "editMessageText" }]
+      },
+      {
+        "send": { "text": "did things" },
+        "expect": [{ "method": "sendMessage" }]
+      },
+      {
+        "send": { "text": "more things" },
+        "expect": [{ "method": "sendMessage" }]
+      },
+      {
+        "send": { "text": "none" },
+        "expect": [{ "method": "sendMessage" }]
+      },
+      {
+        "send": { "callback": "history:view" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": {
+              "text": "🗂 Rockets — standup history (page 1/1)\nTap a date to open its digest."
+            }
+          }
+        ]
+      },
+      {
+        "send": { "callback": "history:search" },
+        "expect": [{ "method": "editMessageText" }]
+      },
+      {
+        "send": { "text": "zzzznotfound" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "No standups matched that search." } }
+        ]
+      }
+    ]
+  }
+]

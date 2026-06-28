@@ -1,0 +1,54 @@
+[
+  {
+    "name": "create a team flow prompts for a name",
+    "steps": [
+      {
+        "send": { "callback": "team:open" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "You're not in a team yet. What would you like to do?" }
+          }
+        ]
+      },
+      {
+        "send": { "callback": "team:create" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "What's your team's name? Send it as a message." }
+          }
+        ]
+      },
+      {
+        "send": { "text": "Rockets" },
+        "expect": [{ "method": "sendMessage" }]
+      }
+    ]
+  },
+  {
+    "name": "joining with an unknown code fails gracefully",
+    "steps": [
+      {
+        "send": { "callback": "team:join" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "Send me the 6-character join code your team gave you." }
+          }
+        ]
+      },
+      {
+        "send": { "text": "ZZZZZZ" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "I couldn't find a team with that code. Double-check it and tap 🔑 Join again."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
