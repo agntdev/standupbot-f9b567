@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Create Team",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Initiate team creation flow for owner/admin"
+            }
+          }
+        ],
+        "send": {
+          "callback": "team:create"
+        }
+      }
+    ]
+  }
+]
